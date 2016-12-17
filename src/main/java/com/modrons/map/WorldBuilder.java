@@ -12,7 +12,7 @@ public final class WorldBuilder {
     private WorldBuilder() {
     }
 
-    public static WorldBuilder aWorld() {
+    public static WorldBuilder initialize() {
         return new WorldBuilder();
     }
 
@@ -43,7 +43,7 @@ public final class WorldBuilder {
     }
 
     // Cellular Automata - let's do some reading B O Y S.
-    // This is a very messy algorithm and needs refactoring. I will comment out parts and cut into
+    // This is a very messy algorithm and needs refactoring. I will comment parts and then cut into
     // private methods eventually. It also could be optimized severely, look at all those goddamn loops.
     private WorldBuilder smooth(int times) {
         Tile[][] smoothed = new Tile[width][height];
