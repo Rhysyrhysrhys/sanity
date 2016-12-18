@@ -2,16 +2,13 @@ package com.modrons.map;
 
 import java.awt.Color;
 
-/**
- * Created by rhys on 12/17/16.
- */
 public class World {
 
     private final Tile[][] tiles;
     private final int width;
     private final int height;
 
-    public World(Tile[][] tiles) {
+    World(Tile[][] tiles) {
         this.tiles = tiles;
         this.width = tiles.length;
         this.height = tiles[0].length;
