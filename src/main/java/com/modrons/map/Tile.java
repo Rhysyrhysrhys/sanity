@@ -4,10 +4,8 @@ import java.awt.Color;
 
 import asciiPanel.AsciiPanel;
 
-/**
- * Created by rhys on 12/17/16.
- */
 public enum Tile {
+
     FLOOR((char) 250, AsciiPanel.yellow),
     WALL((char) 177, AsciiPanel.yellow),
     BOUND('x', AsciiPanel.brightBlack);
