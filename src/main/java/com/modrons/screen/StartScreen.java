@@ -12,6 +12,6 @@ public class StartScreen implements Screen {
     }
 
     public Screen respondToUserInput(KeyEvent key) {
-        return key.getKeyCode() == KeyEvent.VK_ENTER ? new PlayScreen(80, 21) : this;
+        return key.getKeyCode() == KeyEvent.VK_ENTER ? new PlayScreen() : this;
     }
 }
