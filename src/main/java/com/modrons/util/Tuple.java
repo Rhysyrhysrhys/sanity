@@ -1,20 +1,20 @@
 package com.modrons.util;
 
-public class Tuple<X, Y> {
+public class Tuple<T> {
 
-    private final X x;
-    private final Y y;
+    private final T x;
+    private final T y;
 
-    public Tuple(X x, Y y) {
+    public Tuple(T x, T y) {
         this.x = x;
         this.y = y;
     }
 
-    public X getX() {
+    public T getX() {
         return x;
     }
 
-    public Y getY() {
+    public T getY() {
         return y;
     }
 }

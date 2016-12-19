@@ -6,6 +6,7 @@ import asciiPanel.AsciiPanel;
 
 import com.modrons.map.World;
 import com.modrons.map.WorldBuilder;
+import com.modrons.util.Tuple;
 
 public class PlayScreen implements Screen {
 
@@ -13,8 +14,7 @@ public class PlayScreen implements Screen {
     private final int screenWidth;
     private final int screenHeight;
 
-    private int centerX;
-    private int centerY;
+    private Tuple<Integer> coordinates = new Tuple<>(0, 0);
 
     PlayScreen() {
         screenWidth = 80;
@@ -23,12 +23,12 @@ public class PlayScreen implements Screen {
     }
 
     public void displayOutput(AsciiPanel terminal) {
-        int left = Math.max(0, Math.min(centerX - screenWidth / 2, world.getWidth() - screenWidth));
-        int top = Math.max(0, Math.min(centerY - screenHeight / 2, world.getHeight() - screenHeight));
+        int left = Math.max(0, Math.min(coordinates.getX() - screenWidth / 2, world.getWidth() - screenWidth));
+        int top = Math.max(0, Math.min(coordinates.getY() - screenHeight / 2, world.getHeight() - screenHeight));
 
         displayTiles(terminal, left, top);
 
-        terminal.write('X', centerX - left, centerY - top);
+        terminal.write('X', coordinates.getX() - left, coordinates.getY() - top);
 
         terminal.writeCenter("-- press [escape] to lose or [enter] to win --", 22);
     }
@@ -80,7 +80,9 @@ public class PlayScreen implements Screen {
     }
 
     private void scrollBy(int mx, int my) {
-        centerX = Math.max(0, Math.min(centerX + mx, world.getWidth() - 1));
-        centerY = Math.max(0, Math.min(centerY + my, world.getHeight() - 1));
+        coordinates = new Tuple<>(
+                Math.max(0, Math.min(coordinates.getX() + mx, world.getWidth() - 1)),
+                Math.max(0, Math.min(coordinates.getY() + my, world.getHeight() - 1))
+        );
     }
 }
